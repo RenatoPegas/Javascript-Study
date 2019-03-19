@@ -1,4 +1,45 @@
 var title = document.querySelector('.main-title');
 title.textContent = 'Aparecida Nutricionista'; //altera o conteúdo da tag h1 
 
-var pacient = document.querySelector('.paciente')
+function imcCalc(pacientData){
+    
+    var tdPeso = pacientData.querySelector('.info-peso'); //busca no pacient o elemento peso
+    var peso = tdPeso.textContent;
+
+    var tdAltura = pacientData.querySelector('.info-altura');
+    var altura = tdAltura.textContent;
+
+    var lineImc = pacientData.querySelector('.info-imc');
+
+    var pesoCheck = true;
+    var alturaCheck = true;
+
+    if(peso <= 0 || peso >= 1000){
+        console.log('peso invalido');
+        pesoCheck = false;
+        lineImc.textContent = 'peso invalido';
+    }
+
+    if (altura <= 0 || altura >= 3.00){
+        console.log('altura invalida');
+        alturaCheck = false;
+        lineImc.textContent = 'altura invalida';
+    }
+
+    if (pesoCheck  && alturaCheck){
+
+    var imc = peso / (altura * altura);
+    lineImc.textContent = imc;
+
+    }
+
+}
+
+var pacient = document.querySelector('#first-pacient');
+
+imcCalc(pacient);
+
+
+
+
+
