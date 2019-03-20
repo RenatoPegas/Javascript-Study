@@ -18,26 +18,33 @@ function imcCalc(pacientData){
         console.log('peso invalido');
         pesoCheck = false;
         lineImc.textContent = 'peso invalido';
+        pacientData.classList.add('invalid-pacient');  
     }
 
     if (altura <= 0 || altura >= 3.00){
         console.log('altura invalida');
         alturaCheck = false;
         lineImc.textContent = 'altura invalida';
+        pacientData.classList.add('invalid-pacient');  
     }
 
     if (pesoCheck  && alturaCheck){
 
     var imc = peso / (altura * altura);
-    lineImc.textContent = imc;
+    lineImc.textContent = imc.toFixed(2);
 
     }
 
 }
 
-var pacient = document.querySelector('#first-pacient');
+var pacient = document.querySelectorAll('.paciente');
 
-imcCalc(pacient);
+for(i=0; i < pacient.length; i++){
+
+    imcCalc(pacient[i]);
+
+}
+
 
 
 
