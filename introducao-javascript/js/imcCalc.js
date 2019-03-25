@@ -36,14 +36,22 @@ function imcCalc(pacientData){
 
     if (pesoCheck  && alturaCheck){
 
-    var imc = peso / (altura * altura);
-    lineImc.textContent = imc.toFixed(2);
+        var imc = valorImc(peso, altura);
+        lineImc.textContent = imc;
 
     }
 
 }
 
-var pacient = document.querySelectorAll('.paciente');
+function valorImc(peso, altura){
+
+    var imc = 0;
+    imc = peso / (altura * altura);
+    return imc.toFixed(2);
+
+}
+
+var pacient = document.querySelectorAll('.pacient');
 
 for(i=0; i < pacient.length; i++){
 
