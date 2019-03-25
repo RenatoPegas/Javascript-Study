@@ -7,7 +7,6 @@ title.addEventListener('click', function(){
 
 });
 
-
 function imcCalc(pacientData){
     
     var tdPeso = pacientData.querySelector('.info-peso'); //busca no pacient o elemento peso
@@ -51,43 +50,3 @@ for(i=0; i < pacient.length; i++){
     imcCalc(pacient[i]);
 
 }
-
-var addButtom = document.querySelector('#adicionar-paciente');
-addButtom.addEventListener('click', function(event){ //utilizar função anonima
-
-    event.preventDefault();
-    
-    var form = document.querySelector('#form-add');
-
-    var name = form.nome.value;
-    var peso = form.peso.value;
-    var altura = form.altura.value;
-    var gordura = form.gordura.value;
-
-    var pacientTr = document.createElement('tr');
-
-    var tdNome = document.createElement('td');
-    var tdPeso = document.createElement('td');
-    var tdAltura = document.createElement('td');
-    var tdGordura = document.createElement('td');
-    var tdImc = document.createElement('td');
-
-    tdNome.textContent = name;
-    tdPeso.textContent = peso;
-    tdAltura.textContent = altura;
-    tdGordura.textContent = gordura;
-
-    pacientTr.appendChild(tdNome);
-    pacientTr.appendChild(tdPeso);
-    pacientTr.appendChild(tdAltura);
-    pacientTr.appendChild(tdGordura);
-
-    var table = document.querySelector('#tabela-pacientes');
-    table.appendChild(pacientTr);
-    
-});
-
-
-
-
-
