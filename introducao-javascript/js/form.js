@@ -29,36 +29,36 @@ addButtom.addEventListener('click', function (event) {    //utilizar função an
 
 function getPacientValor(form){
 
-    var pacient = {                //objeto paciente
-        nome: form.nome.value,
-        peso: form.peso.value,
-        altura: form.altura.value,
-        gordura: form.gordura.value,
-        imc: valorImc(form.peso.value, form.altura.value)
+    return pacient = {                //pacient object
+        name: form.name.value,
+        weight: form.weight.value,
+        height: form.height.value,
+        fat: form.fat.value,
+        imc: valorImc(form.weight.value, form.height.value)
     }
 
-    return pacient;
+    
 }
 
 function buildTr(pacient){
+                                                  
+    var pacientTr = document.createElement('tr');  //use a variable to create a element 'tr into HTML
+    pacientTr.classList.add('pacient');            //add pacient class
 
-    var pacientTr = document.createElement('tr'); //usará a variável para criar o elemento "tr" no html
-    pacientTr.classList.add('pacient');
-
-    pacientTr.appendChild( buildTd(pacient.nome, 'info-nome') );                 //englobará o elemento 'tdNome' no elemento pai 'pacientTr'
-    pacientTr.appendChild( buildTd(pacient.peso, 'info-peso') );                 //englobará o elemento 'tdPeso' no elemento pai 'pacientTr'
-    pacientTr.appendChild( buildTd(pacient.altura, 'info-altura') );             //englobará o elemento 'tdAltura' no elemento pai 'pacientTr'
-    pacientTr.appendChild( buildTd(pacient.gordura, 'info-gordura') );           //englobará o elemento 'tdGordura' no elemento pai 'pacientTr'
-    pacientTr.appendChild( buildTd(pacient.imc, 'info-imc') );
+    pacientTr.appendChild( buildTd(pacient.name, 'info-name') );         //append the 'td' element 'name' into a 'tr
+    pacientTr.appendChild( buildTd(pacient.weight, 'info-weight'));      //append the 'td' element 'weight' into a 'tr
+    pacientTr.appendChild( buildTd(pacient.height, 'info-height'));      //append the 'td' element 'height' into a 'tr
+    pacientTr.appendChild( buildTd(pacient.fat, 'info-fat') );           //append the 'td' element 'fat' into a 'tr
+    pacientTr.appendChild( buildTd(pacient.imc, 'info-imc'));            //append the 'td' element 'imc' into a 'tr    
 
     return pacientTr;
 }
 
 function buildTd(data, classe){
     
-    var td = document.createElement('td');   //monta uma td
-    td.textContent = data;                   //aloca a variavel 'data' dentro do campo 'td'
-    td.classList.add(classe);                //adiciona uma classe
+    var td = document.createElement('td');   //build a 'td'
+    td.textContent = data;                   //allocates the 'data' variable into the 'td' field
+    td.classList.add(classe);                //add a css class
 
     return td;
 }
@@ -67,27 +67,27 @@ function checkPacient(pacient){
 
     var errors = []; //variavel para um arrat de erros
 
-    if(pacient.nome.length == 0){
+    if(pacient.name.length == 0){
         errors.push('Insira um nome'); //insere uma string no array
     }
 
-    if(!validatePeso(pacient.peso)){
+    if(!validateWeight(pacient.weight)){
         errors.push('Peso invalido');  //insere uma string no array
     }
         
-    if(!validateAltura(pacient.altura)){
+    if(!validateHeight(pacient.height)){
         errors.push('Altura Invalida'); //insere uma string no array
     }
 
-    if (pacient.gordura.length == 0) {
+    if (pacient.fat.length == 0) {
         errors.push('A gordura não pode ser em branco'); //insere uma string no array
     }
 
-    if (pacient.peso.length == 0) {
+    if (pacient.weight.length == 0) {
         errors.push('O peso não pode ser em branco'); //insere uma string no array
     }
 
-    if (pacient.altura.length == 0) {
+    if (pacient.height.length == 0) {
         errors.push('A altura não pode ser em branco'); //insere uma string no array
     }
 

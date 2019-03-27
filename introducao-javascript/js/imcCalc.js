@@ -9,43 +9,43 @@ title.addEventListener('click', function(){
 
 function imcCalc(pacientData){
     
-    var tdPeso = pacientData.querySelector('.info-peso'); //busca no pacient o elemento peso
-    var peso = tdPeso.textContent;
+    var tdWeight = pacientData.querySelector('.info-weight'); //busca no pacient o elemento weight (peso)
+    var weight = tdWeight.textContent;
 
-    var tdAltura = pacientData.querySelector('.info-altura');
-    var altura = tdAltura.textContent;
+    var tdHeight = pacientData.querySelector('.info-height');   //busca no pacient o elemento height (altura)
+    var height = tdHeight.textContent;
 
     var lineImc = pacientData.querySelector('.info-imc');
 
-    var pesoCheck = validatePeso(peso);
-    var alturaCheck = validateAltura(altura);
+    var weightCheck = validateWeight(weight);
+    var heightCheck = validateHeight(height);
 
-    if(!pesoCheck){
+    if(!weightCheck){
         console.log('peso invalido');
-        pesoCheck = false;
+        weightCheck = false;
         lineImc.textContent = 'peso invalido';
         pacientData.classList.add('invalid-pacient');  
     }
 
-    if (!alturaCheck){
+    if (!heightCheck){
         console.log('altura invalida');
-        alturaCheck = false;
+        heightCheck = false;
         lineImc.textContent = 'altura invalida';
         pacientData.classList.add('invalid-pacient');  
     }
 
-    if (pesoCheck  && alturaCheck){
+    if (weightCheck  && heightCheck){
 
-        var imc = valorImc(peso, altura);
+        var imc = valorImc(weight, height);
         lineImc.textContent = imc;
 
     }
 
 }
 
-function validatePeso(peso){
+function validateWeight(weight){
 
-    if (peso >= 0 && peso <= 300){
+    if (weight >= 0 && weight <= 300){
 
         return true;
 
@@ -57,9 +57,9 @@ function validatePeso(peso){
     
 }
 
-function validateAltura(altura){
+function validateHeight(height){
 
-    if(altura >= 0 && altura <=3.00){
+    if(height >= 0 && height <=3.00){
 
         return true;
 
@@ -71,10 +71,10 @@ function validateAltura(altura){
 
 }
 
-function valorImc(peso, altura){
+function valorImc(weight, height){
 
     var imc = 0;
-    imc = peso / (altura * altura);
+    imc = weight / (height * height);
     return imc.toFixed(2);
 
 }
