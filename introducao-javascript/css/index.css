@@ -49,6 +49,7 @@ section h2{
 	padding-bottom: .5em;
 	border-bottom: 1px solid #ccc;
 	margin-bottom: .5em;
+	margin-top: .5em;
 }
 
 table{
@@ -77,9 +78,8 @@ label{
 }
 
 .campo{
-	margin: 0;
+	margin-bottom: 1em;
 	padding-bottom: 1em;
-	width: 100%;
 	border: 1px solid #ccc;
 	padding: .7em;
 	width: 100%;
@@ -142,4 +142,8 @@ button[disabled=disabled], button:disabled {
 .fade-out{
 	opacity: 0;
 	transition: .3s;
+}
+
+.display-field{
+	display: none;
 }
