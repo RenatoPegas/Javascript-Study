@@ -12,14 +12,15 @@
 
 		<header>
 			<div class="container">
-				<h1 class='main-title'>Aparecida Nutrição</h1>
+				<h1 class='main-title'>Aparecida Nutricionist</h1>
 			</div>
 		</header>
 		<main>
 			<section class="container">
-				<h2>Meus pacientes</h2>
+				<h2>My pacients</h2>
 				<label for="table-filter">Filter:</label>
 				<input type="text" name="Filter" id="table-filter" class="campo" value="" placeholder="write a pacient name">
+				
 				<table>
 					<thead>
 						<tr>
@@ -71,12 +72,13 @@
 						</tr>
 					</tbody>
 				</table>
-
+				<span id='ajax-error' class='display-field'>Pacient seach error</span>
+				<button id="search-pacient" class="botao bto-principal">Search Pacient</button>
 			</section>
 		</main>
 
 		<section class="container">
-			<h2 id="titulo-form">Adicionar novo paciente</h2>
+			<h2 id="titulo-form">Add new pacient</h2>
 			<ul id="error-message"></ul>
 			<form id="form-add">
 				<div class="grupo">
@@ -99,7 +101,7 @@
 						class="campo campo-medio">
 				</div>
 		
-				<button id="adicionar-paciente" class="botao bto-principal">Adicionar</button>
+				<button id="adicionar-paciente" class="botao bto-principal">Add</button>
 			</form>
 		</section>
 
@@ -110,3 +112,4 @@
 <script src="js/form.js"></script>
 <script src="js/remove-pacient.js"></script>
 <script src="js/filter.js"></script>
+<script src="js/searchPacient.js"></script>
